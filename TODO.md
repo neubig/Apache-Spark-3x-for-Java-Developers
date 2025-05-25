@@ -106,12 +106,12 @@ This document tracks the progress of upgrading examples from Spark 2.x to Spark 
 - [Blocked] src/main/java/com/packt/sfjd/ch9/WordCountTransformOpEx.java (Created WordCountTransformOpExUpdated.java instead)
 
 ## Chapter 10 - MLlib
-- [Pending] src/main/java/com/packt/sfjd/ch10/BikeRentalPrediction.java
-- [Pending] src/main/java/com/packt/sfjd/ch10/Flight.java
+- [Blocked] src/main/java/com/packt/sfjd/ch10/BikeRentalPrediction.java (Created BikeRentalPredictionUpdated.java instead)
+- [Finished] src/main/java/com/packt/sfjd/ch10/Flight.java
 - [Finished] src/main/java/com/packt/sfjd/ch10/FlightDelay.java
-- [Pending] src/main/java/com/packt/sfjd/ch10/JavaALSExample.java
-- [Pending] src/main/java/com/packt/sfjd/ch10/JavaEstimatorTransformerParamExample.java
-- [Pending] src/main/java/com/packt/sfjd/ch10/Rating.java
+- [Blocked] src/main/java/com/packt/sfjd/ch10/JavaALSExample.java (Created JavaALSExampleUpdated.java instead)
+- [Blocked] src/main/java/com/packt/sfjd/ch10/JavaEstimatorTransformerParamExample.java (Created JavaEstimatorTransformerParamExampleUpdated.java instead)
+- [Finished] src/main/java/com/packt/sfjd/ch10/Rating.java
 
 ## Chapter 11 - GraphX
 - [Pending] src/main/java/com/packt/sfjd/ch11/AbsFunc1.java
