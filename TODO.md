@@ -8,25 +8,27 @@ This document tracks the progress of upgrading examples from Spark 2.x to Spark 
 - [Blocked] - Cannot be upgraded due to compatibility issues
 
 ## Chapter 2 - Java 8 Examples
-- [Pending] src/main/java/com/packt/sfjd/ch2/AInnerClassVsLambda.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/Car.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/ClosureDemo.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/ClosureExample.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/CollectorsExamples.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/CreateStreamExample.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/Interface1.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/Interface2.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/InterfaceImpl.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/IntermediateOpExample.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/LambdaExamples.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/LexicalScoping.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/MethodReferenceExample.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/MyFileNameFilter.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/MyFilterImpl.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/MyInterface.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/MyInterfaceDemo.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/MyInterfaceImpl.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/ShortCircuitOperationExample.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/AInnerClassVsLambda.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/Car.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/ClosureDemo.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/ClosureExample.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/CollectorsExamples.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/CreateStreamExample.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/CreateStreamExampleSimple.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/Interface1.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/Interface2.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/InterfaceImpl.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/InterfaceImplTest.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/IntermediateOpExample.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/LambdaExamples.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/LexicalScoping.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/MethodReferenceExample.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/MyFileNameFilter.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/MyFilterImpl.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/MyInterface.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/MyInterfaceDemo.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/MyInterfaceImpl.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/ShortCircuitOperationExample.java
 - [Pending] src/main/java/com/packt/sfjd/ch2/TerminalOpExample.java
 - [Pending] src/main/java/com/packt/sfjd/ch2/WordCountInJava.java
 - [Pending] src/main/java/com/packt/sfjd/ch2/generics/FirstExample.java
