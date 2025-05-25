@@ -12,38 +12,63 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import scala.Tuple2;
 
-public class StateLessProcessingExample {
-	public static void main(String[] args) throws InterruptedException {
+public class StateLessProcessingExampleUpdated {
+    public static void main(String[] args) throws InterruptedException {
+        // Create a SparkSession
+        SparkSession sparkSession = SparkSession.builder()
+            .master("local[*]")
+            .appName("Stateless Streaming Example")
+            .config("spark.sql.warehouse.dir", "file:///tmp/spark-warehouse")
+            .getOrCreate();
 
-		System.setProperty("hadoop.home.dir", "C:\\softwares\\Winutils");
+        // Create a JavaStreamingContext
+        JavaStreamingContext jssc = new JavaStreamingContext(
+            new JavaSparkContext(sparkSession.sparkContext()),
+            Durations.milliseconds(1000)
+        );
 
-		SparkSession sparkSession = SparkSession.builder().master("local[*]").appName("stateless Streaming Example")
-				.config("spark.sql.warehouse.dir", "file:////C:/Users/sgulati/spark-warehouse").getOrCreate();
+        // Create a socket stream (you'll need to run a socket server separately)
+        JavaReceiverInputDStream<String> inStream = jssc.socketTextStream("localhost", 9999);
 
-		JavaStreamingContext jssc = new JavaStreamingContext(new JavaSparkContext(sparkSession.sparkContext()),
-				Durations.milliseconds(1000));
-		JavaReceiverInputDStream<String> inStream = jssc.socketTextStream("10.204.136.223", 9999);
-
-		JavaDStream<FlightDetails> flightDetailsStream = inStream.map(x -> {
-			ObjectMapper mapper = new ObjectMapper();
-			return mapper.readValue(x, FlightDetails.class);
-		});
-		
-		
-		
-		//flightDetailsStream.print();
-		
-		//flightDetailsStream.foreachRDD((VoidFunction<JavaRDD<FlightDetails>>) rdd -> rdd.saveAsTextFile("hdfs://namenode:port/path"));
-		
-	   JavaDStream<FlightDetails> window = flightDetailsStream.window(Durations.minutes(5),Durations.minutes(1));
-		
-	    JavaPairDStream<String, Double> transfomedWindow = window.mapToPair(f->new Tuple2<String,Double>(f.getFlightId(),f.getTemperature())).
-	    mapValues(t->new Tuple2<Double,Integer>(t,1))
-	    .reduceByKey((t1, t2) -> new Tuple2<Double, Integer>(t1._1()+t2._1(), t1._2()+t2._2())).mapValues(t -> t._1()/t._2());
-	    transfomedWindow.cache();
-	    transfomedWindow.print();
-	    
-		jssc.start();
-		jssc.awaitTermination();
-	}
+        // Parse JSON to FlightDetails objects
+        JavaDStream<FlightDetails> flightDetailsStream = inStream.map(x -> {
+            ObjectMapper mapper = new ObjectMapper();
+            return mapper.readValue(x, FlightDetails.class);
+        });
+        
+        // Create a sliding window
+        JavaDStream<FlightDetails> window = flightDetailsStream.window(
+            Durations.minutes(5),  // window size
+            Durations.minutes(1)   // sliding interval
+        );
+        
+        // Transform the window data to calculate average temperature per flight
+        JavaPairDStream<String, Double> transformedWindow = window
+            // Create key-value pairs with flightId as key and temperature as value
+            .mapToPair(f -> new Tuple2<String, Double>(f.getFlightId(), f.getTemperature()))
+            // Transform values to (temperature, count) pairs for averaging
+            .mapValues(t -> new Tuple2<Double, Integer>(t, 1))
+            // Reduce by key to sum temperatures and counts
+            .reduceByKey((t1, t2) -> new Tuple2<Double, Integer>(
+                t1._1() + t2._1(),  // sum of temperatures
+                t1._2() + t2._2()   // sum of counts
+            ))
+            // Calculate average temperature
+            .mapValues(t -> t._1() / t._2());
+        
+        // Cache the transformed data
+        transformedWindow.cache();
+        
+        // Print the results
+        transformedWindow.print();
+        
+        System.out.println("Starting stateless streaming example...");
+        System.out.println("To test, run a socket server: nc -lk 9999");
+        System.out.println("Then send JSON data like: {\"flightId\":\"tz302\",\"timestamp\":1494423926816,\"temperature\":21.12,\"landed\":false}");
+        System.out.println("Press Ctrl+C to terminate the application.");
+        
+        // Start the streaming context
+        jssc.start();
+        jssc.awaitTermination();
+    }
 }

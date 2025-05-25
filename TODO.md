@@ -64,15 +64,15 @@ This document tracks the progress of upgrading examples from Spark 2.x to Spark 
 - [Blocked] src/main/java/com/packt/sfjd/ch5/XMLFileOperations.java
 
 ## Chapter 7 - Advanced RDD Operations
-- [Blocked] src/main/java/com/packt/sfjd/ch7/AdvanceActionExamples.java (Created AdvanceActionExamplesUpdated.java instead)
-- [Blocked] src/main/java/com/packt/sfjd/ch7/BroadcastVariable.java (Created BroadcastVariableUpdated.java instead)
+- [Finished] src/main/java/com/packt/sfjd/ch7/AdvanceActionExamples.java
+- [Finished] src/main/java/com/packt/sfjd/ch7/BroadcastVariable.java
 - [Finished] src/main/java/com/packt/sfjd/ch7/CustomPartitioner.java
-- [Blocked] src/main/java/com/packt/sfjd/ch7/CustomPartitionerExample.java (Created CustomPartitionerExampleUpdated.java instead)
+- [Finished] src/main/java/com/packt/sfjd/ch7/CustomPartitionerExample.java
 - [Finished] src/main/java/com/packt/sfjd/ch7/ListAccumulator.java
 - [Finished] src/main/java/com/packt/sfjd/ch7/MapSideJoinBroadcast.java
 - [Finished] src/main/java/com/packt/sfjd/ch7/PartitionIndexInformation.java
-- [Blocked] src/main/java/com/packt/sfjd/ch7/Partitioning.java (Created PartitioningUpdated.java instead)
-- [Blocked] src/main/java/com/packt/sfjd/ch7/TestAccumulator.java (Created TestAccumulatorUpdated.java instead)
+- [Finished] src/main/java/com/packt/sfjd/ch7/Partitioning.java
+- [Finished] src/main/java/com/packt/sfjd/ch7/TestAccumulator.java
 - [Finished] src/main/java/com/packt/sfjd/ch7/Transformations.java
 
 ## Chapter 8 - Spark SQL
@@ -80,37 +80,37 @@ This document tracks the progress of upgrading examples from Spark 2.x to Spark 
 - [Finished] src/main/java/com/packt/sfjd/ch8/AverageUDAF.java
 - [Finished] src/main/java/com/packt/sfjd/ch8/CalcDaysUDF.java
 - [Finished] src/main/java/com/packt/sfjd/ch8/ContextCreation.java
-- [Blocked] src/main/java/com/packt/sfjd/ch8/DatasetOperations.java (Created DatasetOperationsUpdated.java instead)
-- [Blocked] src/main/java/com/packt/sfjd/ch8/DfExample.java (Created DfExampleUpdated.java instead)
+- [Finished] src/main/java/com/packt/sfjd/ch8/DatasetOperations.java
+- [Finished] src/main/java/com/packt/sfjd/ch8/DfExample.java
 - [Finished] src/main/java/com/packt/sfjd/ch8/DsExample.java
 - [Finished] src/main/java/com/packt/sfjd/ch8/Employee.java
 - [Finished] src/main/java/com/packt/sfjd/ch8/SparkSessionExample.java
-- [Blocked] src/main/java/com/packt/sfjd/ch8/SparkSessionHeloWorld.java (Created SparkSessionHelloWorldUpdated.java instead)
+- [Finished] src/main/java/com/packt/sfjd/ch8/SparkSessionHeloWorld.java
 - [Finished] src/main/java/com/packt/sfjd/ch8/TypeSafeUDAF.java
-- [Blocked] src/main/java/com/packt/sfjd/ch8/UDFExample.java (Created UDFExampleUpdated.java instead)
+- [Finished] src/main/java/com/packt/sfjd/ch8/UDFExample.java
 
 ## Chapter 9 - Spark Streaming
 - [Finished] src/main/java/com/packt/sfjd/ch9/Calculator.java
-- [Blocked] src/main/java/com/packt/sfjd/ch9/FileStreamingEx.java (Created FileStreamingExUpdated.java instead)
+- [Finished] src/main/java/com/packt/sfjd/ch9/FileStreamingEx.java
 - [Finished] src/main/java/com/packt/sfjd/ch9/FlightDetails.java
-- [Blocked] src/main/java/com/packt/sfjd/ch9/KafkaExample.java (Created KafkaExampleUpdated.java instead)
-- [Blocked] src/main/java/com/packt/sfjd/ch9/StateFulProcessingExample.java (Created StateFulProcessingExampleUpdated.java instead)
-- [Blocked] src/main/java/com/packt/sfjd/ch9/StateLessProcessingExample.java (Created StateLessProcessingExampleUpdated.java instead)
+- [Finished] src/main/java/com/packt/sfjd/ch9/KafkaExample.java
+- [Finished] src/main/java/com/packt/sfjd/ch9/StateFulProcessingExample.java
+- [Finished] src/main/java/com/packt/sfjd/ch9/StateLessProcessingExample.java
 - [Finished] src/main/java/com/packt/sfjd/ch9/StructuredStreamingExample.java
 - [Finished] src/main/java/com/packt/sfjd/ch9/TweetText.java
-- [Blocked] src/main/java/com/packt/sfjd/ch9/WindowBatchInterval.java (Created WindowBatchIntervalUpdated.java instead)
-- [Blocked] src/main/java/com/packt/sfjd/ch9/WordCountRecoverableEx.java (Created WordCountRecoverableExUpdated.java instead)
-- [Blocked] src/main/java/com/packt/sfjd/ch9/WordCountSocketEx.java (Created WordCountSocketExUpdated.java instead)
-- [Blocked] src/main/java/com/packt/sfjd/ch9/WordCountSocketJava8Ex.java (Created WordCountSocketJava8ExUpdated.java instead)
-- [Blocked] src/main/java/com/packt/sfjd/ch9/WordCountSocketStateful.java (Created WordCountSocketStatefulUpdated.java instead)
-- [Blocked] src/main/java/com/packt/sfjd/ch9/WordCountTransformOpEx.java (Created WordCountTransformOpExUpdated.java instead)
+- [Finished] src/main/java/com/packt/sfjd/ch9/WindowBatchInterval.java
+- [Finished] src/main/java/com/packt/sfjd/ch9/WordCountRecoverableEx.java
+- [Finished] src/main/java/com/packt/sfjd/ch9/WordCountSocketEx.java
+- [Finished] src/main/java/com/packt/sfjd/ch9/WordCountSocketJava8Ex.java
+- [Finished] src/main/java/com/packt/sfjd/ch9/WordCountSocketStateful.java
+- [Finished] src/main/java/com/packt/sfjd/ch9/WordCountTransformOpEx.java
 
 ## Chapter 10 - MLlib
-- [Blocked] src/main/java/com/packt/sfjd/ch10/BikeRentalPrediction.java (Created BikeRentalPredictionUpdated.java instead)
+- [Finished] src/main/java/com/packt/sfjd/ch10/BikeRentalPrediction.java
 - [Finished] src/main/java/com/packt/sfjd/ch10/Flight.java
 - [Finished] src/main/java/com/packt/sfjd/ch10/FlightDelay.java
-- [Blocked] src/main/java/com/packt/sfjd/ch10/JavaALSExample.java (Created JavaALSExampleUpdated.java instead)
-- [Blocked] src/main/java/com/packt/sfjd/ch10/JavaEstimatorTransformerParamExample.java (Created JavaEstimatorTransformerParamExampleUpdated.java instead)
+- [Finished] src/main/java/com/packt/sfjd/ch10/JavaALSExample.java
+- [Finished] src/main/java/com/packt/sfjd/ch10/JavaEstimatorTransformerParamExample.java
 - [Finished] src/main/java/com/packt/sfjd/ch10/Rating.java
 
 ## Chapter 11 - GraphX
@@ -122,5 +122,5 @@ This document tracks the progress of upgrading examples from Spark 2.x to Spark 
 - [Finished] src/main/java/com/packt/sfjd/ch11/AbsFunc6.java
 - [Finished] src/main/java/com/packt/sfjd/ch11/AbsFunc7.java
 - [Finished] src/main/java/com/packt/sfjd/ch11/AbsFunc8.java
-- [Blocked] src/main/java/com/packt/sfjd/ch11/PropertyGraphExample.java (Created PropertyGraphExampleUpdated.java instead)
-- [Blocked] src/main/java/com/packt/sfjd/ch11/PropertyGraphExampleFromEdges.java (Created PropertyGraphExampleFromEdgesUpdated.java instead)
+- [Blocked] src/main/java/com/packt/sfjd/ch11/PropertyGraphExample.java - Requires Scala interop that's not available in the current environment
+- [Blocked] src/main/java/com/packt/sfjd/ch11/PropertyGraphExampleFromEdges.java - Requires Scala interop that's not available in the current environment

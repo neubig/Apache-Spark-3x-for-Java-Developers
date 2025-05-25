@@ -25,79 +25,108 @@ import org.apache.spark.streaming.kafka010.LocationStrategies;
 
 import scala.Tuple2;
 
-public class KafkaExample  {
+public class KafkaExampleUpdated {
 
     public static void main(String[] args) {
-    	//Window Specific property if Hadoop is not instaalled or HADOOP_HOME is not set
-		 System.setProperty("hadoop.home.dir", "E:\\hadoop");
-    	//Logger rootLogger = LogManager.getRootLogger();
-   		//rootLogger.setLevel(Level.WARN); 
+        // Set up the streaming context
         SparkConf conf = new SparkConf().setAppName("KafkaExample").setMaster("local[*]");    
         JavaSparkContext sc = new JavaSparkContext(conf);
         JavaStreamingContext streamingContext = new JavaStreamingContext(sc, Durations.minutes(2));
-        streamingContext.checkpoint("E:\\hadoop\\checkpoint");
+        streamingContext.checkpoint("/tmp/checkpoint");
+        
         Logger rootLogger = LogManager.getRootLogger();
-   		rootLogger.setLevel(Level.WARN); 
+        rootLogger.setLevel(Level.WARN); 
+        
+        // Kafka configuration
         Map<String, Object> kafkaParams = new HashMap<>();
-        kafkaParams.put("bootstrap.servers", "10.0.75.1:9092");
+        kafkaParams.put("bootstrap.servers", "localhost:9092");
         kafkaParams.put("key.deserializer", StringDeserializer.class);
         kafkaParams.put("value.deserializer", StringDeserializer.class);
-        kafkaParams.put("group.id", "use_a_separate_group_id_for_each_strea");
+        kafkaParams.put("group.id", "spark_streaming_group");
         kafkaParams.put("auto.offset.reset", "latest");
-       // kafkaParams.put("enable.auto.commit", false);
+        // kafkaParams.put("enable.auto.commit", false);
 
         Collection<String> topics = Arrays.asList("mytopic", "anothertopic");
 
-        final JavaInputDStream<ConsumerRecord<String, String>> stream = KafkaUtils.createDirectStream(streamingContext,LocationStrategies.PreferConsistent(),
-        				ConsumerStrategies.<String, String>Subscribe(topics, kafkaParams));
+        // Create direct Kafka stream
+        final JavaInputDStream<ConsumerRecord<String, String>> stream = 
+            KafkaUtils.createDirectStream(
+                streamingContext,
+                LocationStrategies.PreferConsistent(),
+                ConsumerStrategies.<String, String>Subscribe(topics, kafkaParams)
+            );
 
-        JavaPairDStream<String, String> pairRDD = stream.mapToPair(record-> new Tuple2<>(record.key(), record.value()));
+        // Process the stream
+        JavaPairDStream<String, String> pairRDD = stream.mapToPair(record -> 
+            new Tuple2<>(record.key(), record.value())
+        );
        
-        pairRDD.foreachRDD(pRDD-> { pRDD.foreach(tuple-> System.out.println(new Date()+" :: Kafka msg key ::"+tuple._1() +" the val is ::"+tuple._2()));});
+        pairRDD.foreachRDD(pRDD -> {
+            pRDD.foreach(tuple -> 
+                System.out.println(new Date() + " :: Kafka msg key ::" + tuple._1() + " the val is ::" + tuple._2())
+            );
+        });
        
-        JavaDStream<String> tweetRDD = pairRDD.map(x-> x._2()).map(new TweetText());
+        JavaDStream<String> tweetRDD = pairRDD.map(x -> x._2()).map(new TweetText());
         
-        tweetRDD.foreachRDD(tRDD -> tRDD.foreach(x->System.out.println(new Date()+" :: "+x)));
+        tweetRDD.foreachRDD(tRDD -> 
+            tRDD.foreach(x -> System.out.println(new Date() + " :: " + x))
+        );
         
-       JavaDStream<String> hashtagRDD = tweetRDD.flatMap(twt-> Arrays.stream(twt.split(" ")).filter(str-> str.contains("#")).collect(Collectors.toList()).iterator() );
+        JavaDStream<String> hashtagRDD = tweetRDD.flatMap(twt -> 
+            Arrays.stream(twt.split(" "))
+                .filter(str -> str.contains("#"))
+                .collect(Collectors.toList())
+                .iterator()
+        );
    
-        hashtagRDD.foreachRDD(tRDD -> tRDD.foreach(x->System.out.println(x)));
+        hashtagRDD.foreachRDD(tRDD -> 
+            tRDD.foreach(x -> System.out.println(x))
+        );
         
         JavaPairDStream<String, Long> cntByVal = hashtagRDD.countByValue();
         
-        cntByVal.foreachRDD(tRDD -> tRDD.foreach(x->System.out.println(new Date()+" ::The count tag is ::"+x._1() +" and the val is ::"+x._2())));
+        cntByVal.foreachRDD(tRDD -> 
+            tRDD.foreach(x -> System.out.println(new Date() + " ::The count tag is ::" + x._1() + " and the val is ::" + x._2()))
+        );
         
-       /* hashtagRDD.window(Durations.seconds(60), Durations.seconds(30))
-                  .countByValue()
-                 .foreachRDD(tRDD -> tRDD.foreach(x->System.out.println(new Date()+" ::The window count tag is ::"+x._1() +" and the val is ::"+x._2())));
+        // Window operations
+        hashtagRDD.window(Durations.minutes(8)).countByValue()
+            .foreachRDD(tRDD -> 
+                tRDD.foreach(x -> System.out.println(new Date() + " ::The window count tag is ::" + x._1() + " and the val is ::" + x._2()))
+            );
+            
+        hashtagRDD.window(Durations.minutes(8), Durations.minutes(2)).countByValue()
+            .foreachRDD(tRDD -> 
+                tRDD.foreach(x -> System.out.println(new Date() + " ::The window count tag is ::" + x._1() + " and the val is ::" + x._2()))
+            );
+            
+        hashtagRDD.window(Durations.minutes(12), Durations.minutes(8)).countByValue()
+            .foreachRDD(tRDD -> 
+                tRDD.foreach(x -> System.out.println(new Date() + " ::The window count tag is ::" + x._1() + " and the val is ::" + x._2()))
+            );
+            
+        hashtagRDD.window(Durations.minutes(2), Durations.minutes(2)).countByValue()
+            .foreachRDD(tRDD -> 
+                tRDD.foreach(x -> System.out.println(new Date() + " ::The window count tag is ::" + x._1() + " and the val is ::" + x._2()))
+            );
+            
+        hashtagRDD.window(Durations.minutes(12), Durations.minutes(12)).countByValue()
+            .foreachRDD(tRDD -> 
+                tRDD.foreach(x -> System.out.println(new Date() + " ::The window count tag is ::" + x._1() + " and the val is ::" + x._2()))
+            );
+       
+        // Start the streaming context
+        System.out.println("Starting Kafka streaming example...");
+        System.out.println("Note: This example requires a running Kafka broker with the specified topics.");
+        System.out.println("Press Ctrl+C to terminate the application.");
         
-       hashtagRDD.countByValueAndWindow(Durations.seconds(60), Durations.seconds(30))
-                 .foreachRDD(tRDD -> tRDD.foreach(x->System.out.println("The window&count tag is ::"+x._1() +" and the val is ::"+x._2())));
-        */
-       hashtagRDD.window(Durations.minutes(8)).countByValue()
-       .foreachRDD(tRDD -> tRDD.foreach(x->System.out.println(new Date()+" ::The window count tag is ::"+x._1() +" and the val is ::"+x._2())));
-       hashtagRDD.window(Durations.minutes(8),Durations.minutes(2)).countByValue()
-       .foreachRDD(tRDD -> tRDD.foreach(x->System.out.println(new Date()+" ::The window count tag is ::"+x._1() +" and the val is ::"+x._2())));
-       hashtagRDD.window(Durations.minutes(12),Durations.minutes(8)).countByValue()
-       .foreachRDD(tRDD -> tRDD.foreach(x->System.out.println(new Date()+" ::The window count tag is ::"+x._1() +" and the val is ::"+x._2())));
-       hashtagRDD.window(Durations.minutes(2),Durations.minutes(2)).countByValue()
-       .foreachRDD(tRDD -> tRDD.foreach(x->System.out.println(new Date()+" ::The window count tag is ::"+x._1() +" and the val is ::"+x._2())));
-       hashtagRDD.window(Durations.minutes(12),Durations.minutes(12)).countByValue()
-       .foreachRDD(tRDD -> tRDD.foreach(x->System.out.println(new Date()+" ::The window count tag is ::"+x._1() +" and the val is ::"+x._2())));
-       
-       /*hashtagRDD.window(Durations.minutes(5),Durations.minutes(2)).countByValue()
-       .foreachRDD(tRDD -> tRDD.foreach(x->System.out.println(new Date()+" ::The window count tag is ::"+x._1() +" and the val is ::"+x._2())));*/
-       /* hashtagRDD.window(Durations.minutes(10),Durations.minutes(1)).countByValue()
-       .foreachRDD(tRDD -> tRDD.foreach(x->System.out.println(new Date()+" ::The window count tag is ::"+x._1() +" and the val is ::"+x._2())));*/
-       
         streamingContext.start();
+        
         try {
-			streamingContext.awaitTermination();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+            streamingContext.awaitTermination();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
-
-	
 }
