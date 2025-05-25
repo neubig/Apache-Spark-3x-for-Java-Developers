@@ -13,39 +13,47 @@ import org.apache.spark.streaming.api.java.JavaDStream;
 import org.apache.spark.streaming.api.java.JavaPairDStream;
 import org.apache.spark.streaming.api.java.JavaStreamingContext;
 
-public class FileStreamingEx {
-	
-	 public static void main(String[] args) {
-	    	//Window Specific property if Hadoop is not instaalled or HADOOP_HOME is not set
-			 System.setProperty("hadoop.home.dir", "E:\\hadoop");
-	    	//Logger rootLogger = LogManager.getRootLogger();
-	   		//rootLogger.setLevel(Level.WARN); 
-	        SparkConf conf = new SparkConf().setAppName("KafkaExample").setMaster("local[*]");
-	        String inputDirectory="E:\\hadoop\\streamFolder\\";
-	     
-	        JavaSparkContext sc = new JavaSparkContext(conf);
-	        JavaStreamingContext streamingContext = new JavaStreamingContext(sc, Durations.seconds(1));
-	       // streamingContext.checkpoint("E:\\hadoop\\checkpoint");
-	        Logger rootLogger = LogManager.getRootLogger();
-	   		rootLogger.setLevel(Level.WARN); 
-	   		
-	   		JavaDStream<String> streamfile = streamingContext.textFileStream(inputDirectory);
-	   		streamfile.print();
-	   		streamfile.foreachRDD(rdd-> rdd.foreach(x -> System.out.println(x)));
-	   		
-	   			   		
-	   		JavaPairDStream<LongWritable, Text> streamedFile = streamingContext.fileStream(inputDirectory, LongWritable.class, Text.class, TextInputFormat.class);
-	   	 streamedFile.print();
-	   		
-	   	 streamingContext.start();
-	   	 
+public class FileStreamingExUpdated {
+    
+    public static void main(String[] args) {
+        // Set up the streaming context
+        SparkConf conf = new SparkConf().setAppName("FileStreamingExample").setMaster("local[*]");
+        String inputDirectory = "/tmp/streamFolder/";
+        
+        JavaSparkContext sc = new JavaSparkContext(conf);
+        JavaStreamingContext streamingContext = new JavaStreamingContext(sc, Durations.seconds(1));
+        
+        Logger rootLogger = LogManager.getRootLogger();
+        rootLogger.setLevel(Level.WARN); 
+        
+        // Create the input directory if it doesn't exist
+        try {
+            java.nio.file.Files.createDirectories(java.nio.file.Paths.get(inputDirectory));
+        } catch (Exception e) {
+            System.err.println("Error creating directory: " + e.getMessage());
+        }
+        
+        // Stream text files from the directory
+        JavaDStream<String> streamfile = streamingContext.textFileStream(inputDirectory);
+        streamfile.print();
+        streamfile.foreachRDD(rdd -> rdd.foreach(x -> System.out.println(x)));
+        
+        // Stream files using Hadoop's TextInputFormat
+        JavaPairDStream<LongWritable, Text> streamedFile = streamingContext.fileStream(
+            inputDirectory, LongWritable.class, Text.class, TextInputFormat.class);
+        streamedFile.print();
+        
+        // Start the streaming context
+        streamingContext.start();
+        
+        System.out.println("Streaming context started. Waiting for files in " + inputDirectory);
+        System.out.println("You can add files to this directory in another terminal to see them processed.");
+        System.out.println("Press Ctrl+C to terminate the application.");
 
-	        try {
-				streamingContext.awaitTermination();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	 }
-
+        try {
+            streamingContext.awaitTermination();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }

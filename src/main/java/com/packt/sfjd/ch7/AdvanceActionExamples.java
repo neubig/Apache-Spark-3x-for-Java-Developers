@@ -22,7 +22,7 @@ import org.apache.spark.sql.SparkSession;
 
 import scala.Tuple2;
 
-public class AdvanceActionExamples {
+public class AdvanceActionExamplesUpdated {
 
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		// Create SparkSession
@@ -184,7 +184,9 @@ public class AdvanceActionExamples {
 		     }
 		     
 		     System.out.println(" The no of partitions are ::"+ intRDD1.getNumPartitions());
-		    
+		     
+		     // Stop the SparkSession
+		     spark.stop();
 	}
 
 }
