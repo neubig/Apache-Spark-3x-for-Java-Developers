@@ -34,7 +34,7 @@ public class WordCount
         JavaRDD<String> words = input.flatMap(
                 new FlatMapFunction<String, String>() {
                     public Iterator<String> call(String s) {
-                        return (Iterator<String>) Arrays.asList(s.split(" "));
+                        return Arrays.asList(s.split(" ")).iterator();
                     }
                 } );
 
@@ -72,7 +72,7 @@ public class WordCount
         JavaRDD<String> words = input.flatMap( s -> Arrays.asList( s.split( " " ) ).iterator() );
 
         // Java 8 with lambdas: transform the collection of words into pairs (word and 1) and then count them
-        JavaPairRDD<Object, Object> counts = words.mapToPair( t -> new Tuple2( t, 1 ) ).reduceByKey( (x, y) -> (int)x + (int)y );
+        JavaPairRDD<String, Integer> counts = words.mapToPair( t -> new Tuple2<String, Integer>( t, 1 ) ).reduceByKey( (x, y) -> x + y );
 
         // Save the word count back out to a text file, causing evaluation.
         counts.saveAsTextFile( "output" );

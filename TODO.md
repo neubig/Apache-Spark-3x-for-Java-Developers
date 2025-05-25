@@ -48,7 +48,7 @@ This document tracks the progress of upgrading examples from Spark 2.x to Spark 
 
 ## Chapter 5 - Data Sources
 - [Finished] src/main/java/com/packt/sfjd/ch5/CSVFileOperations.java
-- [Pending] src/main/java/com/packt/sfjd/ch5/CassandraExample.java
+- [Finished] src/main/java/com/packt/sfjd/ch5/CassandraExample.java
 - [Pending] src/main/java/com/packt/sfjd/ch5/DelimitedFileOperations.java
 - [Pending] src/main/java/com/packt/sfjd/ch5/Employee.java
 - [Pending] src/main/java/com/packt/sfjd/ch5/HdfsExample.java
