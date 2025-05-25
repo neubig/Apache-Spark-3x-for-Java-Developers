@@ -11,28 +11,34 @@ import org.apache.log4j.Level;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.spark.Partition;
-import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaFutureAction;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.VoidFunction;
-import org.apache.spark.deploy.worker.Sleeper;
 import org.apache.spark.partial.BoundedDouble;
 import org.apache.spark.partial.PartialResult;
-
-import com.amazonaws.services.simpleworkflow.flow.worker.SynchronousActivityTaskPoller;
+import org.apache.spark.sql.SparkSession;
 
 import scala.Tuple2;
 
 public class AdvanceActionExamples {
 
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
-		 System.setProperty("hadoop.home.dir", "E:\\hadoop");
-		 SparkConf conf = new SparkConf().setMaster("local").setAppName("ActionExamples").set("spark.hadoop.validateOutputSpecs", "false").set("spark.scheduler.mode", "FAIR");
-			JavaSparkContext sparkContext = new JavaSparkContext(conf);
-			  Logger rootLogger = LogManager.getRootLogger();
-				rootLogger.setLevel(Level.WARN); 
+		// Create SparkSession
+		SparkSession spark = SparkSession.builder()
+				.appName("AdvanceActionExamples")
+				.master("local[*]")
+				.config("spark.hadoop.validateOutputSpecs", "false")
+				.config("spark.scheduler.mode", "FAIR")
+				.getOrCreate();
+		
+		// Get JavaSparkContext from SparkSession
+		JavaSparkContext sparkContext = new JavaSparkContext(spark.sparkContext());
+		
+		// Set log level
+		Logger rootLogger = LogManager.getRootLogger();
+		rootLogger.setLevel(Level.WARN);
 			
 			
 			 //	countApprox(long timeout)

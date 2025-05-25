@@ -14,11 +14,14 @@ import scala.Tuple2;
 
 public class PartitionIndexInformation {
 public static void main(String[] args) {
+	// Create SparkSession
+	SparkSession spark = SparkSession.builder()
+			.appName("PartitionIndexInformation")
+			.master("local[*]")
+			.getOrCreate();
 	
-	SparkSession sparkSession = SparkSession.builder().master("local").appName("My App")
-			.config("spark.sql.warehouse.dir", "file:////C:/Users/sgulati/spark-warehouse").getOrCreate();
-
-	JavaSparkContext jsc = new JavaSparkContext(sparkSession.sparkContext());
+	// Get JavaSparkContext from SparkSession
+	JavaSparkContext jsc = new JavaSparkContext(spark.sparkContext());
 	
 	
 	JavaPairRDD<Integer, String> pairRdd = jsc.parallelizePairs(
@@ -56,5 +59,8 @@ public static void main(String[] args) {
 	
 	System.out.println(mapPartitionsWithIndex.collect());
 	System.out.println(mapPartitionsWithIndex1.collect());
+	
+	// Stop the SparkSession
+	spark.stop();
 }
 }

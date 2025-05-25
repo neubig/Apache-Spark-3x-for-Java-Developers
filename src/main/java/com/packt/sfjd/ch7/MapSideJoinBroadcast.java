@@ -15,11 +15,14 @@ import scala.Tuple3;
 public class MapSideJoinBroadcast {
 
 	public static void main(String[] args) {
-
-		SparkSession sparkSession = SparkSession.builder().master("local").appName("My App")
-				.config("spark.sql.warehouse.dir", "file:////C:/Users/sgulati/spark-warehouse").getOrCreate();
-
-		JavaSparkContext jsc = new JavaSparkContext(sparkSession.sparkContext());
+		// Create SparkSession
+		SparkSession spark = SparkSession.builder()
+				.appName("MapSideJoinBroadcast")
+				.master("local[*]")
+				.getOrCreate();
+		
+		// Get JavaSparkContext from SparkSession
+		JavaSparkContext jsc = new JavaSparkContext(spark.sparkContext());
 
 		JavaPairRDD<String, String> userIdToCityId = jsc.parallelizePairs(
 				Arrays.asList(new Tuple2<String, String>("1", "101"), new Tuple2<String, String>("2", "102"),
@@ -37,7 +40,9 @@ public class MapSideJoinBroadcast {
 				v1 -> new Tuple3<String, String, String>(v1._1(), v1._2(), citiesBroadcasted.value().get(v1._2())));
 
 		System.out.println(joined.collect());
-
+		
+		// Stop the SparkSession
+		spark.stop();
 	}
 
 }

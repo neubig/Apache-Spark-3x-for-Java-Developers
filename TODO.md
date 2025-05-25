@@ -29,11 +29,11 @@ This document tracks the progress of upgrading examples from Spark 2.x to Spark 
 - [Finished] src/main/java/com/packt/sfjd/ch2/MyInterfaceDemo.java
 - [Finished] src/main/java/com/packt/sfjd/ch2/MyInterfaceImpl.java
 - [Finished] src/main/java/com/packt/sfjd/ch2/ShortCircuitOperationExample.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/TerminalOpExample.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/WordCountInJava.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/generics/FirstExample.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/generics/MyGeneric.java
-- [Pending] src/main/java/com/packt/sfjd/ch2/generics/MyGenericsDemo.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/TerminalOpExample.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/WordCountInJava.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/generics/FirstExample.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/generics/MyGeneric.java
+- [Finished] src/main/java/com/packt/sfjd/ch2/generics/MyGenericsDemo.java
 
 ## Chapter 4 - RDD Examples
 - [Finished] src/main/java/com/packt/sfjd/ch4/ActionExamples.java
@@ -64,15 +64,15 @@ This document tracks the progress of upgrading examples from Spark 2.x to Spark 
 - [Blocked] src/main/java/com/packt/sfjd/ch5/XMLFileOperations.java
 
 ## Chapter 7 - Advanced RDD Operations
-- [Pending] src/main/java/com/packt/sfjd/ch7/AdvanceActionExamples.java
-- [Pending] src/main/java/com/packt/sfjd/ch7/BroadcastVariable.java
-- [Pending] src/main/java/com/packt/sfjd/ch7/CustomPartitioner.java
-- [Pending] src/main/java/com/packt/sfjd/ch7/CustomPartitionerExample.java
-- [Pending] src/main/java/com/packt/sfjd/ch7/ListAccumulator.java
-- [Pending] src/main/java/com/packt/sfjd/ch7/MapSideJoinBroadcast.java
-- [Pending] src/main/java/com/packt/sfjd/ch7/PartitionIndexInformation.java
-- [Pending] src/main/java/com/packt/sfjd/ch7/Partitioning.java
-- [Pending] src/main/java/com/packt/sfjd/ch7/TestAccumulator.java
+- [Blocked] src/main/java/com/packt/sfjd/ch7/AdvanceActionExamples.java (Created AdvanceActionExamplesUpdated.java instead)
+- [Blocked] src/main/java/com/packt/sfjd/ch7/BroadcastVariable.java (Created BroadcastVariableUpdated.java instead)
+- [Finished] src/main/java/com/packt/sfjd/ch7/CustomPartitioner.java
+- [Blocked] src/main/java/com/packt/sfjd/ch7/CustomPartitionerExample.java (Created CustomPartitionerExampleUpdated.java instead)
+- [Finished] src/main/java/com/packt/sfjd/ch7/ListAccumulator.java
+- [Finished] src/main/java/com/packt/sfjd/ch7/MapSideJoinBroadcast.java
+- [Finished] src/main/java/com/packt/sfjd/ch7/PartitionIndexInformation.java
+- [Blocked] src/main/java/com/packt/sfjd/ch7/Partitioning.java (Created PartitioningUpdated.java instead)
+- [Blocked] src/main/java/com/packt/sfjd/ch7/TestAccumulator.java (Created TestAccumulatorUpdated.java instead)
 - [Finished] src/main/java/com/packt/sfjd/ch7/Transformations.java
 
 ## Chapter 8 - Spark SQL

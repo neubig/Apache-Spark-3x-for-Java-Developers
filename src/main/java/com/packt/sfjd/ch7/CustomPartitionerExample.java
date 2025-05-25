@@ -4,18 +4,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.sql.SparkSession;
 
 import scala.Tuple2;
 
 public class CustomPartitionerExample {
 public static void main(String[] args) {
-	System.setProperty("hadoop.home.dir", "C:\\softwares\\Winutils");
-	SparkConf conf = new SparkConf().setMaster("local").setAppName("Partitioning");
-	JavaSparkContext jsc = new JavaSparkContext(conf);
+	// Create SparkSession
+	SparkSession spark = SparkSession.builder()
+			.appName("CustomPartitionerExample")
+			.master("local[*]")
+			.getOrCreate();
+	
+	// Get JavaSparkContext from SparkSession
+	JavaSparkContext jsc = new JavaSparkContext(spark.sparkContext());
 	
 	 JavaPairRDD<String, String> pairRdd = jsc.parallelizePairs(
 				Arrays.asList(new Tuple2<String, String>("India", "Asia"),new Tuple2<String, String>("Germany", "Europe"),
