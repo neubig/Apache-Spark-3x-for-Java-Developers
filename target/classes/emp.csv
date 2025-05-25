@@ -1,0 +1,5 @@
+empId,empName,job,manager,hiredate,salary,comm,deptNo
+1,Foo,NULL,NULL,NULL,0,NULL,0
+2,Bar,NULL,NULL,NULL,0,NULL,0
+3,Baz,Developer,1,2023-01-01,100000,NULL,10
+4,Qux,Manager,NULL,2022-01-01,150000,NULL,10

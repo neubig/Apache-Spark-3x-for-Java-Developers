@@ -15,12 +15,12 @@ public class SparkSessionExample {
 		SparkSession sparkSession = SparkSession.builder()
 		.master("local")
 		.appName("Spark Session Example")
-		.enableHiveSupport()
+		// .enableHiveSupport() // Commented out as Hive classes are not available
 		.config("spark.driver.memory", "2G")
-		.config("spark.sql.warehouse.dir", "file:////C:/Users/sgulati/spark-warehouse")
+		.config("spark.sql.warehouse.dir", "file:///tmp/spark-warehouse")
 		.getOrCreate();
 		
-		sparkSession.conf().set("spark.driver.memory", "3G");
+		// sparkSession.conf().set("spark.driver.memory", "3G"); // Cannot modify spark.driver.memory after SparkSession is created
 		
 		SparkContext sparkContext = sparkSession.sparkContext();
 		SparkConf conf = sparkSession.sparkContext().getConf();

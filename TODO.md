@@ -76,18 +76,18 @@ This document tracks the progress of upgrading examples from Spark 2.x to Spark 
 - [Finished] src/main/java/com/packt/sfjd/ch7/Transformations.java
 
 ## Chapter 8 - Spark SQL
-- [Pending] src/main/java/com/packt/sfjd/ch8/Average.java
-- [Pending] src/main/java/com/packt/sfjd/ch8/AverageUDAF.java
-- [Pending] src/main/java/com/packt/sfjd/ch8/CalcDaysUDF.java
-- [Pending] src/main/java/com/packt/sfjd/ch8/ContextCreation.java
-- [Pending] src/main/java/com/packt/sfjd/ch8/DatasetOperations.java
-- [Pending] src/main/java/com/packt/sfjd/ch8/DfExample.java
+- [Finished] src/main/java/com/packt/sfjd/ch8/Average.java
+- [Finished] src/main/java/com/packt/sfjd/ch8/AverageUDAF.java
+- [Finished] src/main/java/com/packt/sfjd/ch8/CalcDaysUDF.java
+- [Finished] src/main/java/com/packt/sfjd/ch8/ContextCreation.java
+- [Blocked] src/main/java/com/packt/sfjd/ch8/DatasetOperations.java (Created DatasetOperationsUpdated.java instead)
+- [Blocked] src/main/java/com/packt/sfjd/ch8/DfExample.java (Created DfExampleUpdated.java instead)
 - [Finished] src/main/java/com/packt/sfjd/ch8/DsExample.java
-- [Pending] src/main/java/com/packt/sfjd/ch8/Employee.java
-- [Pending] src/main/java/com/packt/sfjd/ch8/SparkSessionExample.java
-- [Pending] src/main/java/com/packt/sfjd/ch8/SparkSessionHeloWorld.java
-- [Pending] src/main/java/com/packt/sfjd/ch8/TypeSafeUDAF.java
-- [Pending] src/main/java/com/packt/sfjd/ch8/UDFExample.java
+- [Finished] src/main/java/com/packt/sfjd/ch8/Employee.java
+- [Finished] src/main/java/com/packt/sfjd/ch8/SparkSessionExample.java
+- [Blocked] src/main/java/com/packt/sfjd/ch8/SparkSessionHeloWorld.java (Created SparkSessionHelloWorldUpdated.java instead)
+- [Finished] src/main/java/com/packt/sfjd/ch8/TypeSafeUDAF.java
+- [Blocked] src/main/java/com/packt/sfjd/ch8/UDFExample.java (Created UDFExampleUpdated.java instead)
 
 ## Chapter 9 - Spark Streaming
 - [Pending] src/main/java/com/packt/sfjd/ch9/Calculator.java
