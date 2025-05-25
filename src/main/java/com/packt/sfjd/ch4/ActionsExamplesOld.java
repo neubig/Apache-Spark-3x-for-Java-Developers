@@ -18,7 +18,7 @@ import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.Function2;
 import org.apache.spark.api.java.function.PairFunction;
 import org.apache.spark.sql.SparkSession;
-import org.spark_project.guava.collect.Lists;
+import com.google.common.collect.Lists;
 
 import scala.Tuple2;
 

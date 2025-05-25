@@ -6,12 +6,14 @@ import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.streaming.StreamingQuery;
 import org.apache.spark.sql.streaming.StreamingQueryException;
+import java.util.concurrent.TimeoutException;
+import org.apache.spark.api.java.function.MapFunction;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class StructuredStreamingExample {
 
-	public static void main(String[] args) throws StreamingQueryException {
+	public static void main(String[] args) throws StreamingQueryException, TimeoutException {
 		System.setProperty("hadoop.home.dir", "C:\\softwares\\Winutils");
 		SparkSession sparkSession = SparkSession.builder().master("local[*]").appName("structured Streaming Example")
 				.config("spark.sql.warehouse.dir", "file:////C:/Users/sgulati/spark-warehouse").getOrCreate();
@@ -19,11 +21,12 @@ public class StructuredStreamingExample {
 		Dataset<Row> inStream = sparkSession.readStream().format("socket").option("host", "10.204.136.223")
 				.option("port", 9999).load();
 
-		Dataset<FlightDetails> dsFlightDetails = inStream.as(Encoders.STRING()).map(x -> {
-			ObjectMapper mapper = new ObjectMapper();
-			return mapper.readValue(x, FlightDetails.class);
-
-		}, Encoders.bean(FlightDetails.class));
+		Dataset<FlightDetails> dsFlightDetails = inStream.as(Encoders.STRING()).map(
+				(MapFunction<String, FlightDetails>) x -> {
+					ObjectMapper mapper = new ObjectMapper();
+					return mapper.readValue(x, FlightDetails.class);
+				}, 
+				Encoders.bean(FlightDetails.class));
 		
 		
 		dsFlightDetails.createOrReplaceTempView("flight_details");

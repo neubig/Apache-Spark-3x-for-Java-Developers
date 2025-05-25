@@ -71,7 +71,7 @@ This document tracks the progress of upgrading examples from Spark 2.x to Spark 
 - [Pending] src/main/java/com/packt/sfjd/ch7/PartitionIndexInformation.java
 - [Pending] src/main/java/com/packt/sfjd/ch7/Partitioning.java
 - [Pending] src/main/java/com/packt/sfjd/ch7/TestAccumulator.java
-- [Pending] src/main/java/com/packt/sfjd/ch7/Transformations.java
+- [Finished] src/main/java/com/packt/sfjd/ch7/Transformations.java
 
 ## Chapter 8 - Spark SQL
 - [Pending] src/main/java/com/packt/sfjd/ch8/Average.java
@@ -80,7 +80,7 @@ This document tracks the progress of upgrading examples from Spark 2.x to Spark 
 - [Pending] src/main/java/com/packt/sfjd/ch8/ContextCreation.java
 - [Pending] src/main/java/com/packt/sfjd/ch8/DatasetOperations.java
 - [Pending] src/main/java/com/packt/sfjd/ch8/DfExample.java
-- [Pending] src/main/java/com/packt/sfjd/ch8/DsExample.java
+- [Finished] src/main/java/com/packt/sfjd/ch8/DsExample.java
 - [Pending] src/main/java/com/packt/sfjd/ch8/Employee.java
 - [Pending] src/main/java/com/packt/sfjd/ch8/SparkSessionExample.java
 - [Pending] src/main/java/com/packt/sfjd/ch8/SparkSessionHeloWorld.java
@@ -94,7 +94,7 @@ This document tracks the progress of upgrading examples from Spark 2.x to Spark 
 - [Pending] src/main/java/com/packt/sfjd/ch9/KafkaExample.java
 - [Pending] src/main/java/com/packt/sfjd/ch9/StateFulProcessingExample.java
 - [Pending] src/main/java/com/packt/sfjd/ch9/StateLessProcessingExample.java
-- [Pending] src/main/java/com/packt/sfjd/ch9/StructuredStreamingExample.java
+- [Finished] src/main/java/com/packt/sfjd/ch9/StructuredStreamingExample.java
 - [Pending] src/main/java/com/packt/sfjd/ch9/TweetText.java
 - [Pending] src/main/java/com/packt/sfjd/ch9/WindowBatchInterval.java
 - [Pending] src/main/java/com/packt/sfjd/ch9/WordCountRecoverableEx.java
@@ -106,7 +106,7 @@ This document tracks the progress of upgrading examples from Spark 2.x to Spark 
 ## Chapter 10 - MLlib
 - [Pending] src/main/java/com/packt/sfjd/ch10/BikeRentalPrediction.java
 - [Pending] src/main/java/com/packt/sfjd/ch10/Flight.java
-- [Pending] src/main/java/com/packt/sfjd/ch10/FlightDelay.java
+- [Finished] src/main/java/com/packt/sfjd/ch10/FlightDelay.java
 - [Pending] src/main/java/com/packt/sfjd/ch10/JavaALSExample.java
 - [Pending] src/main/java/com/packt/sfjd/ch10/JavaEstimatorTransformerParamExample.java
 - [Pending] src/main/java/com/packt/sfjd/ch10/Rating.java
