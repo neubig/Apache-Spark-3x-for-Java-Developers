@@ -34,20 +34,20 @@ This document tracks the progress of upgrading examples from Spark 2.x to Spark 
 - [Pending] src/main/java/com/packt/sfjd/ch2/generics/MyGenericsDemo.java
 
 ## Chapter 4 - RDD Examples
-- [Pending] src/main/java/com/packt/sfjd/ch4/ActionExamples.java
+- [Finished] src/main/java/com/packt/sfjd/ch4/ActionExamples.java
 - [Finished] src/main/java/com/packt/sfjd/ch4/ActionsExamplesOld.java
-- [Pending] src/main/java/com/packt/sfjd/ch4/AggeregateExample.java
+- [Finished] src/main/java/com/packt/sfjd/ch4/AggeregateExample.java
 - [Finished] src/main/java/com/packt/sfjd/ch4/JavaWordCount.java
-- [Pending] src/main/java/com/packt/sfjd/ch4/PersistExample.java
-- [Pending] src/main/java/com/packt/sfjd/ch4/SparkWordCount.java
-- [Pending] src/main/java/com/packt/sfjd/ch4/SparkWordCount_1_7.java
-- [Pending] src/main/java/com/packt/sfjd/ch4/WordCount.java
-- [Pending] src/main/java/com/packt/sfjd/ch4/transformations/Test.java
-- [Pending] src/main/java/com/packt/sfjd/ch4/transformations/TestMain.java
+- [Finished] src/main/java/com/packt/sfjd/ch4/PersistExample.java
+- [Finished] src/main/java/com/packt/sfjd/ch4/SparkWordCount.java
+- [Finished] src/main/java/com/packt/sfjd/ch4/SparkWordCount_1_7.java
+- [Finished] src/main/java/com/packt/sfjd/ch4/WordCount.java
+- [Finished] src/main/java/com/packt/sfjd/ch4/transformations/Test.java
+- [Finished] src/main/java/com/packt/sfjd/ch4/transformations/TestMain.java
 - [Finished] src/main/java/com/packt/sfjd/ch4/transformations/Transformations.java
 
 ## Chapter 5 - Data Sources
-- [Pending] src/main/java/com/packt/sfjd/ch5/CSVFileOperations.java
+- [Finished] src/main/java/com/packt/sfjd/ch5/CSVFileOperations.java
 - [Pending] src/main/java/com/packt/sfjd/ch5/CassandraExample.java
 - [Pending] src/main/java/com/packt/sfjd/ch5/DelimitedFileOperations.java
 - [Pending] src/main/java/com/packt/sfjd/ch5/Employee.java
