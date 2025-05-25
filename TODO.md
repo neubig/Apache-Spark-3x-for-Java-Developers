@@ -90,20 +90,20 @@ This document tracks the progress of upgrading examples from Spark 2.x to Spark 
 - [Blocked] src/main/java/com/packt/sfjd/ch8/UDFExample.java (Created UDFExampleUpdated.java instead)
 
 ## Chapter 9 - Spark Streaming
-- [Pending] src/main/java/com/packt/sfjd/ch9/Calculator.java
-- [Pending] src/main/java/com/packt/sfjd/ch9/FileStreamingEx.java
-- [Pending] src/main/java/com/packt/sfjd/ch9/FlightDetails.java
-- [Pending] src/main/java/com/packt/sfjd/ch9/KafkaExample.java
-- [Pending] src/main/java/com/packt/sfjd/ch9/StateFulProcessingExample.java
-- [Pending] src/main/java/com/packt/sfjd/ch9/StateLessProcessingExample.java
+- [Finished] src/main/java/com/packt/sfjd/ch9/Calculator.java
+- [Blocked] src/main/java/com/packt/sfjd/ch9/FileStreamingEx.java (Created FileStreamingExUpdated.java instead)
+- [Finished] src/main/java/com/packt/sfjd/ch9/FlightDetails.java
+- [Blocked] src/main/java/com/packt/sfjd/ch9/KafkaExample.java (Created KafkaExampleUpdated.java instead)
+- [Blocked] src/main/java/com/packt/sfjd/ch9/StateFulProcessingExample.java (Created StateFulProcessingExampleUpdated.java instead)
+- [Blocked] src/main/java/com/packt/sfjd/ch9/StateLessProcessingExample.java (Created StateLessProcessingExampleUpdated.java instead)
 - [Finished] src/main/java/com/packt/sfjd/ch9/StructuredStreamingExample.java
-- [Pending] src/main/java/com/packt/sfjd/ch9/TweetText.java
-- [Pending] src/main/java/com/packt/sfjd/ch9/WindowBatchInterval.java
-- [Pending] src/main/java/com/packt/sfjd/ch9/WordCountRecoverableEx.java
-- [Pending] src/main/java/com/packt/sfjd/ch9/WordCountSocketEx.java
-- [Pending] src/main/java/com/packt/sfjd/ch9/WordCountSocketJava8Ex.java
-- [Pending] src/main/java/com/packt/sfjd/ch9/WordCountSocketStateful.java
-- [Pending] src/main/java/com/packt/sfjd/ch9/WordCountTransformOpEx.java
+- [Finished] src/main/java/com/packt/sfjd/ch9/TweetText.java
+- [Blocked] src/main/java/com/packt/sfjd/ch9/WindowBatchInterval.java (Created WindowBatchIntervalUpdated.java instead)
+- [Blocked] src/main/java/com/packt/sfjd/ch9/WordCountRecoverableEx.java (Created WordCountRecoverableExUpdated.java instead)
+- [Blocked] src/main/java/com/packt/sfjd/ch9/WordCountSocketEx.java (Created WordCountSocketExUpdated.java instead)
+- [Blocked] src/main/java/com/packt/sfjd/ch9/WordCountSocketJava8Ex.java (Created WordCountSocketJava8ExUpdated.java instead)
+- [Blocked] src/main/java/com/packt/sfjd/ch9/WordCountSocketStateful.java (Created WordCountSocketStatefulUpdated.java instead)
+- [Blocked] src/main/java/com/packt/sfjd/ch9/WordCountTransformOpEx.java (Created WordCountTransformOpExUpdated.java instead)
 
 ## Chapter 10 - MLlib
 - [Pending] src/main/java/com/packt/sfjd/ch10/BikeRentalPrediction.java
