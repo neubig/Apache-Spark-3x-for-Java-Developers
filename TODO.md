@@ -114,13 +114,13 @@ This document tracks the progress of upgrading examples from Spark 2.x to Spark 
 - [Finished] src/main/java/com/packt/sfjd/ch10/Rating.java
 
 ## Chapter 11 - GraphX
-- [Pending] src/main/java/com/packt/sfjd/ch11/AbsFunc1.java
-- [Pending] src/main/java/com/packt/sfjd/ch11/AbsFunc2.java
-- [Pending] src/main/java/com/packt/sfjd/ch11/AbsFunc3.java
-- [Pending] src/main/java/com/packt/sfjd/ch11/AbsFunc4.java
-- [Pending] src/main/java/com/packt/sfjd/ch11/AbsFunc5.java
-- [Pending] src/main/java/com/packt/sfjd/ch11/AbsFunc6.java
-- [Pending] src/main/java/com/packt/sfjd/ch11/AbsFunc7.java
-- [Pending] src/main/java/com/packt/sfjd/ch11/AbsFunc8.java
-- [Pending] src/main/java/com/packt/sfjd/ch11/PropertyGraphExample.java
-- [Pending] src/main/java/com/packt/sfjd/ch11/PropertyGraphExampleFromEdges.java
+- [Finished] src/main/java/com/packt/sfjd/ch11/AbsFunc1.java
+- [Finished] src/main/java/com/packt/sfjd/ch11/AbsFunc2.java
+- [Finished] src/main/java/com/packt/sfjd/ch11/AbsFunc3.java
+- [Finished] src/main/java/com/packt/sfjd/ch11/AbsFunc4.java
+- [Finished] src/main/java/com/packt/sfjd/ch11/AbsFunc5.java
+- [Finished] src/main/java/com/packt/sfjd/ch11/AbsFunc6.java
+- [Finished] src/main/java/com/packt/sfjd/ch11/AbsFunc7.java
+- [Finished] src/main/java/com/packt/sfjd/ch11/AbsFunc8.java
+- [Blocked] src/main/java/com/packt/sfjd/ch11/PropertyGraphExample.java (Created PropertyGraphExampleUpdated.java instead)
+- [Blocked] src/main/java/com/packt/sfjd/ch11/PropertyGraphExampleFromEdges.java (Created PropertyGraphExampleFromEdgesUpdated.java instead)
