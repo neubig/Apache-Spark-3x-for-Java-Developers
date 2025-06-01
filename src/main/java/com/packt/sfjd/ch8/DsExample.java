@@ -27,14 +27,14 @@ public class DsExample {
 		
 		//Dataset<Row> dataset = sparkSession.createDataFrame(empRDD, Employee.class);
 		Dataset<Employee> dsEmp = sparkSession.createDataset(empRDD.rdd(), org.apache.spark.sql.Encoders.bean(Employee.class));
-		Dataset<Employee> filter = dsEmp.filter(emp->emp.getEmpId()>1);
+		Dataset<Employee> filter = dsEmp.filter((FilterFunction<Employee>) emp -> emp.getEmpId() > 1);
 		//filter.show();
 	
 		
 		Dataset<Row> dfEmp = sparkSession.createDataFrame(empRDD, Employee.class);
 		dfEmp.show();
 		
-		Dataset<Row> filter2 = dfEmp.filter(row->row.getInt(2)> 1);
+		Dataset<Row> filter2 = dfEmp.filter((FilterFunction<Row>) row -> row.getInt(2) > 1);
 		filter2.show();
 		
 		//Three variants in which DataSet can be used 
@@ -49,7 +49,7 @@ public class DsExample {
 			}
 		}).show();
 		
-		dsEmp.filter(emp -> emp.getEmpId()>1).show();
+		dsEmp.filter((FilterFunction<Employee>) emp -> emp.getEmpId() > 1).show();
 		
 		//2.
 		dsEmp.filter("empID > 1").show();

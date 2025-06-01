@@ -85,8 +85,14 @@ public class CreateStreamExample {
          Stream <BigInteger> sequentialBigIntegerStream = Stream.iterate(BigInteger.ZERO, i -> i.add (BigInteger.TEN)); 
          
          //Streams from File
-         Stream<String> streamOfStrings = Files.lines(Paths.get("Apology_by_Plato.txt"));
-         Stream<String> streamWithCharset = Files.lines(Paths.get("Apology_by_Plato.txt"), Charset.forName("UTF-8"));
+         try {
+             Path filePath = Paths.get("/workspace/Apache-Spark-3x-for-Java-Developers/test_file.txt");
+             Stream<String> streamOfStrings = Files.lines(filePath);
+             Stream<String> streamWithCharset = Files.lines(filePath, Charset.forName("UTF-8"));
+             streamOfStrings.forEach(p -> System.out.println("File content: " + p));
+         } catch (IOException e) {
+             System.out.println("Error reading file: " + e.getMessage());
+         }
 
        
 	}

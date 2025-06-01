@@ -5,10 +5,10 @@
 	<artifactId>SparkForJavaDevelopers</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<spark.version>2.1.1</spark.version>
-		<scala.binary.version>2.11</scala.binary.version>
+		<spark.version>3.5.0</spark.version>
+		<scala.binary.version>2.12</scala.binary.version>
 		<java-version>1.8</java-version>
-		<jackson.version>2.6.5</jackson.version>
+		<jackson.version>2.15.2</jackson.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -17,7 +17,7 @@
 		<dependency>
 			<groupId>org.apache.hadoop</groupId>
 			<artifactId>hadoop-aws</artifactId>
-			<version>2.7.1</version>
+			<version>3.3.6</version>
 		</dependency>
 
 		<dependency>
@@ -35,7 +35,7 @@
 		<dependency>
 			<groupId>com.databricks</groupId>
 			<artifactId>spark-xml_${scala.binary.version}</artifactId>
-			<version>0.3.3</version>
+			<version>0.16.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.spark</groupId>
@@ -57,11 +57,7 @@
 		<!-- <artifactId>spark-csv_${scala.binary.version}</artifactId> -->
 		<!-- <version>1.4.0</version> -->
 		<!-- </dependency> -->
-		<dependency>
-			<groupId>com.databricks</groupId>
-			<artifactId>spark-xml_${scala.binary.version}</artifactId>
-			<version>0.4.1</version>
-		</dependency>
+		<!-- Removed duplicate spark-xml dependency -->
 
 		<dependency>
 			<groupId>net.sf.saxon</groupId>
@@ -70,8 +66,8 @@
 		</dependency>
 		<dependency>
 			<groupId>com.datastax.spark</groupId>
-			<artifactId>spark-cassandra-connector_2.11</artifactId>
-			<version>2.0.0-M1</version>
+			<artifactId>spark-cassandra-connector_${scala.binary.version}</artifactId>
+			<version>3.4.1</version>
 			<!-- <exclusions> <exclusion> <groupId>org.slf4j</groupId> <artifactId>slf4j-log4j12</artifactId> 
 				</exclusion> </exclusions> -->
 		</dependency>
@@ -92,13 +88,7 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>com.sun</groupId>
-			<artifactId>tools</artifactId>
-			<version>${java-version}</version>
-			<scope>system</scope>
-			<systemPath>C:\\Program Files\\Java\\jdk1.8.0_65\\lib\\tools.jar</systemPath>
-		</dependency>
+		<!-- Removed hardcoded tools.jar dependency as it's not needed for Spark 3.x -->
 	</dependencies>
 
 	<build>
